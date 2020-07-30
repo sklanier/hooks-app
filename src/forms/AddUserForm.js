@@ -12,4 +12,24 @@ const AddUserForm = (props) => {
   )
 }
 
+//create initial state with empty values
+const initalFormState = { 
+    id: null, 
+    name: '',
+    username: ''
+}
+
+//set user state to inital state
+const [user, setUser] = useState(initalFormState)
+
+//create event handler for input changes
+const handleInputChange = (event) => {
+    const {
+        name,
+        value
+    } = event.target
+
+    setUser({...user, [name]: value })
+}
+
 export default AddUserForm
