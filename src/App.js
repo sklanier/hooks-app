@@ -11,9 +11,15 @@ const App = () => {
 
   const [users, setUsers] = useState(usersData)
 
+  //ADD USER
   const addUser = (user) => {
     user.id = users.length + 1
     setUsers([...users, user])
+  }
+
+  //DELETE USER
+  const deleteUser = (id) => {
+    setUsers(users.filter((user) => user.id !== id))
   }
 
   return (
@@ -26,7 +32,7 @@ const App = () => {
         </div>
         <div className="flex-large">
           <h2>View users</h2>
-          <UserTable users={users} />
+          <UserTable users={users} deleteUser={deleteUser} />
         </div>
       </div>
     </div>
